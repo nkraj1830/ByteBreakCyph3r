@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Byte Break 3.0 — Cybersecurity CTF by CYPH3R × IIIT Kota</title>
+  <meta name="description"
+    content="Byte Break 3.0, a cybersecurity CTF event hosted by IIIT Kota's Techknow Society and CYPH3R club. Step into the war room." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;900&family=Share+Tech+Mono&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- Overlay Effects -->
+  <div class="crt-overlay"></div>
+  <canvas id="matrix-canvas"></canvas>
+
+  <!-- Boot Sequence -->
+  <div id="boot-sequence">
+    <div class="boot-text-container">
+      <p>> INITIALIZING SECURE CONNECTION...</p>
+      <p>> HANDSHAKE PROTOCOL: 0x8F2A</p>
+      <p>> DECRYPTING PAYLOAD...</p>
+      <p class="blink-fast">> ACCESSING CLASSIFIED NETWORK...</p>
+      <p class="success-text">> IDENTITY VERIFIED. WELCOME, OPERATIVE.</p>
+    </div>
+    <div class="boot-progress">
+      <div class="boot-bar"></div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div id="main-content">
+
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="nav-left">
+        <img src="assets/iiit_kota_logo.jpg" alt="IIIT Kota Logo" class="nav-logo" />
+        <img src="assets/cyph3r_logo.jpg" alt="CYPH3R Logo" class="nav-logo" />
+      </div>
+      <div class="nav-center" id="nav-center">
+        <a href="#about">./ABOUT</a>
+        <a href="#gallery">./GALLERY</a>
+        <a href="#connect">./CONNECT</a>
+        <a href="#register">./REGISTER</a>
+      </div>
+      <div class="nav-right">
+        <img src="assets/techknow_logo.jpg" alt="Techknow Society Logo" class="nav-logo tks-logo" />
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="section hero" id="about">
+      <div class="hero-bg-grid"></div>
+      <div class="hero-content">
+        <!-- Presents label -->
+        <div class="presents-label">
+          <span class="bracket">[</span>
+          <span class="cyph3r-name">CYPH3R</span>
+          <span class="presents-text">PRESENTS</span>
+          <span class="bracket">]</span>
+        </div>
+
+        <!-- Main Title with Glitch -->
+        <h1 class="main-title" data-text="BYTE BREAK 3.0">
+          <span class="title-line">BYTE BREAK</span>
+          <span class="title-version">3.0</span>
+        </h1>
+
+        <!-- Tagline -->
+        <p class="tagline">CODE IS YOUR WEAPON. SURVIVAL IS YOUR MISSION.</p>
+
+        <!-- Divider -->
+        <div class="cyber-divider">
+          <span class="div-line"></span>
+          <span class="div-diamond">◆</span>
+          <span class="div-line"></span>
+        </div>
+
+        <!-- Subtitle -->
+        <p class="hero-subtitle">
+          The digital borders have collapsed. Step into the war room, break the enemy's encryption, and rewrite the
+          coordinates to send their payloads right back at them.
+        </p>
+
+        <!-- Registration Button -->
+        <div class="action-wrapper" id="register">
+          <button class="locked-btn" disabled>
+            <span class="lock-icon">&#128274;</span>
+            <span>REGISTRATION OPENING SOON</span>
+          </button>
+          <span class="tooltip">Access locked. Stand by for orders.</span>
+        </div>
+
+        <!-- Stats bar -->
+        <div class="stats-bar">
+          <div class="stat">
+            <span class="stat-value" id="stat-edition">3.0</span>
+            <span class="stat-label">EDITION</span>
+          </div>
+          <div class="stat-separator"></div>
+          <div class="stat">
+            <span class="stat-value" id="stat-mode">CTF</span>
+            <span class="stat-label">MODE</span>
+          </div>
+          <div class="stat-separator"></div>
+          <div class="stat">
+            <span class="stat-value" id="stat-status">ACTIVE</span>
+            <span class="stat-label">STATUS</span>
+          </div>
+        </div>
+
+        <p class="association-tag"><em>A TechFest Operation by Techknow Society & CYPH3R — IIIT Kota</em></p>
+      </div>
+
+      <!-- Scroll indicator -->
+      <div class="scroll-indicator">
+        <span class="scroll-text">SCROLL TO PROCEED</span>
+        <div class="scroll-arrow">
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </header>
+
+    <!-- About / Briefing Section -->
+    <section class="section about-section">
+      <h2 class="section-heading">
+        <span class="heading-prefix">//</span> WHAT IS BYTE BREAK?
+      </h2>
+      <div class="about-content">
+        <div class="about-text">
+          <p>Byte Break is <span class="highlight">IIIT Kota's premier </span>
+            event, organized by the CYPH3R club under Techknow Society. In its third edition, the stakes are higher than
+            ever.</p>
+          <p>Participants step into the role of <span class="highlight">elite cyber-operatives</span> — tasked with
+            cracking encryptions, exploiting vulnerabilities, and racing against the clock to capture flags hidden
+            across increasingly complex digital battlegrounds.</p>
+          <p>Whether you're a seasoned hacker or a curious beginner — <span class="highlight">the war room is open to
+              all</span>.</p>
+        </div>
+        <div class="about-terminal">
+          <div class="terminal-header">
+            <span class="terminal-dot red"></span>
+            <span class="terminal-dot yellow"></span>
+            <span class="terminal-dot green"></span>
+            <span class="terminal-title">mission_brief.sh</span>
+          </div>
+          <div class="terminal-body">
+            <p><span class="prompt">$</span> cat /ops/byte_break/brief.txt</p>
+            <p class="t-output">> MISSION: Capture The Flag</p>
+            <p class="t-output">> THREAT LEVEL: ██████████ CRITICAL</p>
+            <p class="t-output">> CATEGORIES: Web | Crypto | Forensics | OSINT | Rev | Pwn</p>
+            <p class="t-output">> CLEARANCE: Open to all operatives</p>
+            <p><span class="prompt">$</span> <span class="cursor-blink">_</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Past Events Gallery -->
+    <section class="section declassified-intel" id="gallery">
+      <h2 class="section-heading">
+        <span class="heading-prefix">//</span> PAST OPERATIONS
+      </h2>
+      <p class="intel-desc">Take a look at the operatives who survived the previous missions.</p>
+
+      <!-- Byte Break 1.0 -->
+      <h3 class="event-title">[OPERATION 1.0] — BYTE BREAK 1.0</h3>
+      <div class="intel-gallery">
+        <div class="intel-slot">
+          <div class="img-wrapper"><img src="assets/byte1a.jpg" alt="Byte Break 1.0 - Photo A" />
+            <div class="glitch-overlay"></div>
+          </div>
+        </div>
+        <div class="intel-slot">
+          <div class="img-wrapper"><img src="assets/byte1b.jpg" alt="Byte Break 1.0 - Photo B" />
+            <div class="glitch-overlay"></div>
+          </div>
+        </div>
+        <div class="intel-slot">
+          <div class="img-wrapper"><img src="assets/byte1c.jpg" alt="Byte Break 1.0 - Photo C" />
+            <div class="glitch-overlay"></div>
+          </div>
+        </div>
+        <div class="intel-slot">
+          <div class="img-wrapper"><img src="assets/byte1d.jpg" alt="Byte Break 1.0 - Photo D" />
+            <div class="glitch-overlay"></div>
+          </div>
+        </div>
+        <div class="intel-slot">
+          <div class="img-wrapper"><img src="assets/byte1e.jpg" alt="Byte Break 1.0 - Photo E" />
+            <div class="glitch-overlay"></div>
+          </div>
+        </div>
+        <div class="intel-slot">
+          <div class="img-wrapper"><img src="assets/byte1f.jpg" alt="Byte Break 1.0 - Photo F" />
+            <div class="glitch-overlay"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Byte Break 2.0 -->
+      <h3 class="event-title">[OPERATION 2.0] — BYTE BREAK 2.0</h3>
+      <div class="intel-gallery">
+        <div class="intel-slot">
+          <div class="img-wrapper"><img src="assets/byte2a.jpg" alt="Byte Break 2.0 - Photo A" />
+            <div class="glitch-overlay"></div>
+          </div>
+        </div>
+        <div class="intel-slot">
+          <div class="img-wrapper"><img src="assets/byte2b.jpg" alt="Byte Break 2.0 - Photo B" />
+            <div class="glitch-overlay"></div>
+          </div>
+        </div>
+        <div class="intel-slot">
+          <div class="img-wrapper"><img src="assets/byte2c.jpg" alt="Byte Break 2.0 - Photo C" />
+            <div class="glitch-overlay"></div>
+          </div>
+        </div>
+        <div class="intel-slot">
+          <div class="img-wrapper"><img src="assets/byte2d.jpg" alt="Byte Break 2.0 - Photo D" />
+            <div class="glitch-overlay"></div>
+          </div>
+        </div>
+        <div class="intel-slot">
+          <div class="img-wrapper"><img src="assets/byte2e.jpg" alt="Byte Break 2.0 - Photo E" />
+            <div class="glitch-overlay"></div>
+          </div>
+        </div>
+        <div class="intel-slot">
+          <div class="img-wrapper"><img src="assets/byte2f.jpg" alt="Byte Break 2.0 - Photo F" />
+            <div class="glitch-overlay"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Connect / Instagram Section -->
+    <section class="section connect-section" id="connect">
+      <h2 class="section-heading">
+        <span class="heading-prefix">//</span> STAY CONNECTED
+      </h2>
+      <p class="intel-desc">Follow CYPH3R for real-time updates, hints, and mission drops.</p>
+      <a href="https://www.instagram.com/cyph3r.iiitkota/" target="_blank" rel="noopener noreferrer"
+        class="instagram-card">
+        <div class="ig-icon">
+          <svg viewBox="0 0 24 24" width="52" height="52" fill="none" stroke="currentColor" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+            <circle cx="12" cy="12" r="5"></circle>
+            <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"></circle>
+          </svg>
+        </div>
+        <div class="ig-info">
+          <span class="ig-handle">@cyph3r.iiitkota</span>
+          <span class="ig-cta">OPEN INSTAGRAM →</span>
+        </div>
+      </a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-top">
+        <div class="footer-left">
+          <span>BYTE BREAK 3.0 — IIIT KOTA</span>
+        </div>
+        <div class="footer-center">
+          <span class="CYPH3R-label">CYPH3R ></span>
+          <a href="https://www.instagram.com/cyph3r.iiitkota/" target="_blank" rel="noopener noreferrer"
+            class="social-link">[INSTAGRAM]</a>
+        </div>
+        <div class="footer-right">
+          <span>&copy; 2026 CYPH3R — ALL RIGHTS CLASSIFIED.</span>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>— END OF TRANSMISSION —</span>
+      </div>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
