@@ -15,7 +15,9 @@
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
+html, body { max-width: 100%; }
+
 
 body {
   background-color: var(--bg-dark);
@@ -47,7 +49,7 @@ h1, h2, h3, h4, h5, h6 {
 .crt-overlay {
   position: fixed;
   top: 0; left: 0;
-  width: 100vw; height: 100vh;
+  width: 100%; height: 100%;
   background: repeating-linear-gradient(
     0deg,
     transparent,
@@ -65,7 +67,7 @@ h1, h2, h3, h4, h5, h6 {
 #matrix-canvas {
   position: fixed;
   top: 0; left: 0;
-  width: 100vw; height: 100vh;
+  width: 100%; height: 100%;
   z-index: -1;
   opacity: 0.3;
 }
@@ -76,7 +78,7 @@ h1, h2, h3, h4, h5, h6 {
 #boot-sequence {
   position: fixed;
   top: 0; left: 0;
-  width: 100vw; height: 100vh;
+  width: 100%; height: 100%;
   background-color: #000;
   z-index: 1000;
   display: flex;
@@ -126,6 +128,9 @@ h1, h2, h3, h4, h5, h6 {
 #main-content {
   opacity: 0;
   transition: opacity 1.5s ease-in;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 /* ============================
@@ -142,8 +147,9 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   z-index: 100;
   border-bottom: 1px solid rgba(0, 255, 65, 0.2);
+  max-width: 100%;
 }
-.nav-left, .nav-right { display: flex; align-items: center; gap: 15px; }
+.nav-left { display: flex; align-items: center; gap: 15px; }
 .nav-logo {
   height: 38px; width: auto;
   object-fit: contain;
@@ -193,6 +199,9 @@ h1, h2, h3, h4, h5, h6 {
 .section {
   padding: 100px 30px;
   min-height: 100vh;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -225,6 +234,7 @@ h1, h2, h3, h4, h5, h6 {
   background: radial-gradient(ellipse at 50% 50%, rgba(0, 255, 65, 0.03) 0%, transparent 60%),
               radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.9) 100%);
   padding-bottom: 40px;
+  overflow: hidden;
 }
 .hero-bg-grid {
   position: absolute;
@@ -243,7 +253,9 @@ h1, h2, h3, h4, h5, h6 {
 
 .hero-content {
   max-width: 1000px;
+  width: 100%;
   z-index: 10;
+  padding: 0 10px;
 }
 
 /* CYPH3R PRESENTS label */
@@ -272,7 +284,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Main Title */
 .main-title {
-  font-size: 7rem;
+  font-size: clamp(2.8rem, 8vw, 7rem);
   font-weight: 900;
   line-height: 1;
   color: #fff;
@@ -289,11 +301,11 @@ h1, h2, h3, h4, h5, h6 {
     0 0 20px var(--radar-green),
     0 0 60px rgba(0,255,65,0.3),
     0 0 100px rgba(0,255,65,0.1);
-  letter-spacing: 8px;
+  letter-spacing: clamp(3px, 1vw, 8px);
 }
 .title-version {
   display: block;
-  font-size: 10rem;
+  font-size: clamp(3.5rem, 12vw, 10rem);
   color: #fff;
   text-shadow:
     0 0 20px var(--radar-green),
@@ -724,14 +736,22 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ============================
-   Responsive
+   Responsive — Tablet
    ============================ */
 @media (max-width: 900px) {
-  .main-title { font-size: 4rem; }
-  .title-version { font-size: 6rem; }
+  /* Kill glitch pseudo-elements on mobile */
+  .main-title::before,
+  .main-title::after {
+    content: none !important;
+    display: none !important;
+  }
+  /* Replace with pulsing glow */
+  .main-title {
+    animation: fadeInUp 1s ease 0.8s both, mobileGlow 3s ease-in-out infinite;
+  }
   .about-content { grid-template-columns: 1fr; }
   .intel-gallery { grid-template-columns: repeat(2, 1fr); }
-  .section-heading { font-size: 1.6rem; }
+  .section-heading { font-size: 1.6rem; letter-spacing: 2px; }
   .nav-center { display: none; }
   .hamburger { display: flex; }
   .nav-center.open {
@@ -748,18 +768,144 @@ h1, h2, h3, h4, h5, h6 {
   }
   .nav-center.open a { margin: 0; font-size: 1.1rem; }
   .footer-top { flex-direction: column; text-align: center; }
-  .stats-bar { gap: 20px; }
 }
 
+@keyframes mobileGlow {
+  0%, 100% {
+    text-shadow:
+      0 0 15px var(--radar-green),
+      0 0 40px rgba(0,255,65,0.2);
+  }
+  50% {
+    text-shadow:
+      0 0 30px var(--radar-green),
+      0 0 70px rgba(0,255,65,0.5),
+      0 0 110px rgba(0,255,65,0.2);
+  }
+}
+
+/* ============================
+   Responsive — Phone
+   ============================ */
 @media (max-width: 600px) {
-  .main-title { font-size: 2.5rem; }
-  .title-version { font-size: 4rem; }
-  .tagline { font-size: 0.9rem; letter-spacing: 2px; }
-  .intel-gallery { grid-template-columns: 1fr; }
-  .hero-subtitle { font-size: 1rem; }
-  .locked-btn { font-size: 0.85rem; padding: 14px 25px; letter-spacing: 1px; }
-  .instagram-card { flex-direction: column; text-align: center; padding: 25px; }
-  .presents-label { font-size: 0.9rem; gap: 8px; }
-  .cyph3r-name { font-size: 1.1rem; }
-  .section { padding: 60px 15px; }
+  .section { padding: 50px 15px; }
+
+  /* Hero — tight and impactful on phone */
+  .hero {
+    padding: 40px 15px 30px;
+    min-height: 100vh;
+    min-height: 100dvh;
+    justify-content: center;
+    gap: 0;
+  }
+
+  /* CYPH3R PRESENTS — smaller but crisp */
+  .presents-label {
+    font-size: 0.75rem;
+    gap: 6px;
+    margin-bottom: 15px;
+    letter-spacing: 4px;
+  }
+  .cyph3r-name { font-size: 0.95rem; }
+  .bracket { font-size: 1.1rem; }
+
+  /* Title — optimized for small screens */
+  .main-title {
+    margin-bottom: 12px;
+  }
+  .title-line {
+    font-size: clamp(2.2rem, 12vw, 4rem);
+    letter-spacing: 4px;
+  }
+  .title-version {
+    font-size: clamp(3rem, 16vw, 6rem);
+    line-height: 0.85;
+    margin-top: 2px;
+  }
+
+  /* Tagline */
+  .tagline {
+    font-size: clamp(0.6rem, 2.5vw, 0.95rem);
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+  }
+
+  /* Divider */
+  .cyber-divider { margin-bottom: 15px; }
+  .div-line { width: 50px; }
+
+  /* Subtitle */
+  .hero-subtitle {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    padding: 0 5px;
+  }
+
+  /* Registration button */
+  .action-wrapper { margin-bottom: 25px; }
+  .locked-btn {
+    font-size: 0.75rem;
+    padding: 12px 18px;
+    letter-spacing: 1px;
+    gap: 8px;
+  }
+  .lock-icon { font-size: 1rem; }
+
+  /* Stats bar */
+  .stats-bar { gap: 15px; margin-bottom: 15px; }
+  .stat-value { font-size: 1.2rem; }
+  .stat-label { font-size: 0.6rem; letter-spacing: 2px; }
+  .stat-separator { height: 22px; }
+
+  .association-tag { font-size: 0.7rem; }
+
+  /* Scroll indicator */
+  .scroll-indicator { bottom: 15px; }
+  .scroll-text { font-size: 0.6rem; letter-spacing: 3px; }
+
+  /* About section */
+  .about-section { padding: 50px 15px; }
+  .about-text p { font-size: 0.95rem; line-height: 1.7; }
+  .about-terminal { font-size: 0.8rem; }
+  .terminal-body { padding: 15px; }
+
+  /* Gallery */
+  .intel-gallery { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .event-title { font-size: 1rem; letter-spacing: 1px; margin: 25px 0 12px; }
+  .intel-desc { font-size: 0.95rem; }
+  .section-heading { font-size: 1.3rem; margin-bottom: 30px; letter-spacing: 2px; }
+
+  /* Instagram card */
+  .instagram-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+    gap: 15px;
+  }
+  .ig-icon svg { width: 40px; height: 40px; }
+  .ig-handle { font-size: 1.1rem; }
+  .ig-cta { font-size: 0.75rem; }
+
+  /* Footer */
+  .footer { padding: 25px 15px 15px; }
+  .footer-top { font-size: 0.75rem; gap: 12px; }
+  .footer-bottom { margin-top: 20px; padding-top: 15px; font-size: 0.75rem; }
+
+  /* Navbar */
+  .navbar { padding: 8px 15px; }
+  .nav-logo { height: 32px; }
+}
+
+/* ============================
+   Responsive — Very Small Phone
+   ============================ */
+@media (max-width: 380px) {
+  .title-line { font-size: clamp(1.9rem, 11vw, 3rem); letter-spacing: 3px; }
+  .title-version { font-size: clamp(2.5rem, 14vw, 4.5rem); }
+  .tagline { font-size: 0.6rem; letter-spacing: 1px; }
+  .locked-btn { font-size: 0.7rem; padding: 10px 14px; }
+  .intel-gallery { grid-template-columns: 1fr; gap: 10px; }
+  .stats-bar { gap: 10px; }
+  .stat-value { font-size: 1rem; }
 }
