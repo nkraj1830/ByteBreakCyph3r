@@ -84,9 +84,14 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
-  padding: 50px;
+  align-items: center;
+  padding: 50px 20px;
+  text-align: center;
   transition: opacity 0.8s ease-out;
+}
+.boot-text-container {
+  width: 100%;
+  max-width: 600px;
 }
 .boot-text-container p {
   font-size: 1.1rem;
@@ -104,7 +109,8 @@ h1, h2, h3, h4, h5, h6 {
 @keyframes blinkFast { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
 .boot-progress {
-  width: 300px;
+  width: 80%;
+  max-width: 300px;
   height: 3px;
   background: rgba(255,255,255,0.1);
   margin-top: 30px;
@@ -397,14 +403,18 @@ h1, h2, h3, h4, h5, h6 {
   animation: fadeInUp 1s ease 1.4s both;
 }
 
-/* Registration Button */
+/* Registration Button States */
 .action-wrapper {
   position: relative;
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-bottom: 40px;
   animation: fadeInUp 1s ease 1.6s both;
 }
-.locked-btn {
+.reg-state { display: flex; flex-direction: column; align-items: center; }
+
+.locked-btn, .closed-btn {
   background: rgba(255, 32, 32, 0.06);
   border: 2px solid var(--alert-red);
   color: var(--alert-red);
@@ -419,28 +429,72 @@ h1, h2, h3, h4, h5, h6 {
   animation: pulseRed 2.5s infinite;
   transition: all 0.3s;
 }
+.closed-btn {
+  opacity: 0.6;
+  animation: none;
+  box-shadow: 0 0 8px rgba(255,32,32,0.15) inset;
+}
 .lock-icon { font-size: 1.3rem; }
+.unlock-icon { font-size: 1.3rem; }
 @keyframes pulseRed {
   0%   { box-shadow: 0 0 8px rgba(255,32,32,0.2) inset, 0 0 4px rgba(255,32,32,0.3); }
   50%  { box-shadow: 0 0 20px rgba(255,32,32,0.4) inset, 0 0 15px rgba(255,32,32,0.6); }
   100% { box-shadow: 0 0 8px rgba(255,32,32,0.2) inset, 0 0 4px rgba(255,32,32,0.3); }
 }
 
-.tooltip {
-  visibility: hidden;
-  position: absolute;
-  top: -35px; left: 50%;
-  transform: translateX(-50%);
-  background: var(--bg-dark);
-  color: var(--alert-red);
-  border: 1px dashed var(--alert-red);
-  padding: 5px 14px;
-  font-size: 0.8rem;
-  white-space: nowrap;
-  opacity: 0;
-  transition: opacity 0.3s;
+/* Open registration button */
+.register-btn {
+  background: rgba(0, 255, 65, 0.06);
+  border: 2px solid var(--radar-green);
+  color: var(--radar-green);
+  font-family: var(--font-header);
+  font-size: 1.1rem;
+  padding: 16px 40px;
+  cursor: pointer;
+  letter-spacing: 3px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  animation: pulseGreen 2.5s infinite;
+  transition: all 0.3s;
 }
-.action-wrapper:hover .tooltip { visibility: visible; opacity: 1; }
+.register-btn:hover {
+  background: rgba(0, 255, 65, 0.15);
+  box-shadow: 0 0 30px rgba(0,255,65,0.4), 0 0 60px rgba(0,255,65,0.15);
+  transform: translateY(-2px);
+  text-shadow: 0 0 8px var(--radar-green);
+}
+@keyframes pulseGreen {
+  0%   { box-shadow: 0 0 8px rgba(0,255,65,0.2) inset, 0 0 4px rgba(0,255,65,0.3); }
+  50%  { box-shadow: 0 0 20px rgba(0,255,65,0.3) inset, 0 0 15px rgba(0,255,65,0.5); }
+  100% { box-shadow: 0 0 8px rgba(0,255,65,0.2) inset, 0 0 4px rgba(0,255,65,0.3); }
+}
+
+/* Countdown */
+.countdown-wrapper {
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.85rem;
+}
+.countdown-label {
+  color: var(--text-muted);
+  letter-spacing: 2px;
+}
+.countdown-timer {
+  font-family: var(--font-header);
+  font-size: 1.2rem;
+  color: var(--alert-red);
+  text-shadow: 0 0 8px rgba(255,32,32,0.4);
+  letter-spacing: 3px;
+}
+.closing-timer .countdown-label { color: var(--text-muted); }
+.closing-timer .countdown-timer {
+  color: var(--neon-green);
+  text-shadow: 0 0 8px rgba(0,255,65,0.4);
+}
 
 /* Stats Bar */
 .stats-bar {
@@ -790,6 +844,10 @@ h1, h2, h3, h4, h5, h6 {
 @media (max-width: 600px) {
   .section { padding: 50px 15px; }
 
+  /* Boot sequence — smaller text on phone */
+  #boot-sequence { padding: 30px 15px; }
+  .boot-text-container p { font-size: 0.85rem; }
+
   /* Hero — tight and impactful on phone */
   .hero {
     padding: 40px 15px 30px;
@@ -844,13 +902,20 @@ h1, h2, h3, h4, h5, h6 {
 
   /* Registration button */
   .action-wrapper { margin-bottom: 25px; }
-  .locked-btn {
+  .locked-btn, .closed-btn, .register-btn {
     font-size: 0.75rem;
     padding: 12px 18px;
     letter-spacing: 1px;
     gap: 8px;
   }
-  .lock-icon { font-size: 1rem; }
+  .lock-icon, .unlock-icon { font-size: 1rem; }
+  .countdown-wrapper { 
+    flex-direction: column; 
+    gap: 4px; 
+    margin-top: 10px;
+    font-size: 0.75rem; 
+  }
+  .countdown-timer { font-size: 1rem; }
 
   /* Stats bar */
   .stats-bar { gap: 15px; margin-bottom: 15px; }
