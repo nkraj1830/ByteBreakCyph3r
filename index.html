@@ -49,6 +49,7 @@
       <div class="nav-center" id="nav-center">
         <a href="#about">./ABOUT</a>
         <a href="#gallery">./GALLERY</a>
+        <a href="#faq">./FAQ</a>
         <a href="#connect">./CONNECT</a>
         <a href="#register">./REGISTER</a>
       </div>
@@ -94,9 +95,17 @@
 
         <!-- Registration Button -->
         <div class="action-wrapper" id="register">
-          <button class="locked-btn" disabled>
-            <span class="lock-icon">&#128274;</span>
-            <span>REGISTRATION OPENING SOON</span>
+          <div id="reg-notice" class="registration-notice" style="display: none; margin-bottom: 20px; color: var(--alert-red); font-size: 0.95rem; font-weight: bold; letter-spacing: 1px; text-shadow: 0 0 8px rgba(255, 32, 32, 0.4); text-align: center; border: 1px dashed var(--alert-red); padding: 10px 20px; background: rgba(255, 32, 32, 0.05);">
+            <span class="alert-icon">⚠️</span> NOTICE: LIMITED TEAMS REGISTRATION, SO REGISTER ASAP!
+          </div>
+          <button class="locked-btn" id="reg-btn" disabled style="display: flex; flex-direction: column; gap: 8px;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <span class="lock-icon" id="reg-icon">&#128274;</span>
+              <span id="reg-text">REGISTRATION OPENS IN</span>
+            </div>
+            <div id="countdown-wrapper" class="countdown-wrapper" style="margin-top: 0;">
+              <span id="countdown-timer" class="countdown-timer" style="font-size: 1.4rem;">00:00:00:00</span>
+            </div>
           </button>
         </div>
 
@@ -173,8 +182,43 @@
       </h2>
       <p class="intel-desc">Take a look at the operatives who survived the previous missions.</p>
 
+      <!-- Byte Break 2.0 -->
+      <h3 class="event-title">BYTE BREAK 2.0</h3>
+      <div class="intel-gallery">
+        <div class="intel-slot">
+          <div class="img-wrapper"><img src="assets/byte2a.jpg" alt="Byte Break 2.0 - Photo A" />
+            <div class="glitch-overlay"></div>
+          </div>
+        </div>
+        <div class="intel-slot">
+          <div class="img-wrapper"><img src="assets/byte2b.jpg" alt="Byte Break 2.0 - Photo B" />
+            <div class="glitch-overlay"></div>
+          </div>
+        </div>
+        <div class="intel-slot">
+          <div class="img-wrapper"><img src="assets/byte2c.jpg" alt="Byte Break 2.0 - Photo C" />
+            <div class="glitch-overlay"></div>
+          </div>
+        </div>
+        <div class="intel-slot">
+          <div class="img-wrapper"><img src="assets/byte2d.jpg" alt="Byte Break 2.0 - Photo D" />
+            <div class="glitch-overlay"></div>
+          </div>
+        </div>
+        <div class="intel-slot">
+          <div class="img-wrapper"><img src="assets/byte2e.jpg" alt="Byte Break 2.0 - Photo E" />
+            <div class="glitch-overlay"></div>
+          </div>
+        </div>
+        <div class="intel-slot">
+          <div class="img-wrapper"><img src="assets/byte2f.jpg" alt="Byte Break 2.0 - Photo F" />
+            <div class="glitch-overlay"></div>
+          </div>
+        </div>
+      </div>
+
       <!-- Byte Break 1.0 -->
-      <h3 class="event-title">[OPERATION 1.0] — BYTE BREAK 1.0</h3>
+      <h3 class="event-title">BYTE BREAK 1.0</h3>
       <div class="intel-gallery">
         <div class="intel-slot">
           <div class="img-wrapper"><img src="assets/byte1a.jpg" alt="Byte Break 1.0 - Photo A" />
@@ -207,38 +251,53 @@
           </div>
         </div>
       </div>
+    </section>
 
-      <!-- Byte Break 2.0 -->
-      <h3 class="event-title">[OPERATION 2.0] — BYTE BREAK 2.0</h3>
-      <div class="intel-gallery">
-        <div class="intel-slot">
-          <div class="img-wrapper"><img src="assets/byte2a.jpg" alt="Byte Break 2.0 - Photo A" />
-            <div class="glitch-overlay"></div>
+    <!-- FAQ Section -->
+    <section class="section faq-section" id="faq">
+      <h2 class="section-heading">
+        <span class="heading-prefix">//</span> MISSION BRIEFING [FAQS]
+      </h2>
+      <p class="intel-desc">Declassified answers to common operative inquiries.</p>
+      
+      <div class="faq-container">
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>> What is the required team size?</span>
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>The team can be of 3 to 5 members.</p>
           </div>
         </div>
-        <div class="intel-slot">
-          <div class="img-wrapper"><img src="assets/byte2b.jpg" alt="Byte Break 2.0 - Photo B" />
-            <div class="glitch-overlay"></div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>> Do I need prior CTF or hacking experience?</span>
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>No prior experiences required, it's a fun event.</p>
           </div>
         </div>
-        <div class="intel-slot">
-          <div class="img-wrapper"><img src="assets/byte2c.jpg" alt="Byte Break 2.0 - Photo C" />
-            <div class="glitch-overlay"></div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>> Do we need to bring laptops or devices?</span>
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>You don't need to bring a laptop. Everything will be available at the event.</p>
           </div>
         </div>
-        <div class="intel-slot">
-          <div class="img-wrapper"><img src="assets/byte2d.jpg" alt="Byte Break 2.0 - Photo D" />
-            <div class="glitch-overlay"></div>
-          </div>
-        </div>
-        <div class="intel-slot">
-          <div class="img-wrapper"><img src="assets/byte2e.jpg" alt="Byte Break 2.0 - Photo E" />
-            <div class="glitch-overlay"></div>
-          </div>
-        </div>
-        <div class="intel-slot">
-          <div class="img-wrapper"><img src="assets/byte2f.jpg" alt="Byte Break 2.0 - Photo F" />
-            <div class="glitch-overlay"></div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>> What if there is a time clash with a hackathon?</span>
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>If you or your team members are also participating in a hackathon, please inform us in advance regarding the time clash.</p>
           </div>
         </div>
       </div>
@@ -286,6 +345,12 @@
         <span>— END OF TRANSMISSION —</span>
       </div>
     </footer>
+  </div>
+
+  <!-- Lightbox Modal -->
+  <div id="lightbox-modal" class="lightbox-modal">
+    <span class="lightbox-close" id="lightbox-close">&times;</span>
+    <img class="lightbox-content" id="lightbox-img">
   </div>
 
   <script src="script.js"></script>
