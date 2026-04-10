@@ -112,49 +112,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ─── Countdown & Registration Logic ────────────────
-  const targetDate = new Date('2026-04-09T00:00:00+05:30').getTime();
-  const regBtn = document.getElementById('reg-btn');
-  const countdownTimer = document.getElementById('countdown-timer');
-  const countdownWrapper = document.getElementById('countdown-wrapper');
-  const regNotice = document.getElementById('reg-notice');
-
-  const updateCountdown = () => {
-    const now = new Date().getTime();
-    const distance = targetDate - now;
-
-    if (distance <= 0) {
-      if (countdownTimer) countdownTimer.innerHTML = "00:00:00:00";
-      if (countdownWrapper) countdownWrapper.classList.add('closing-timer');
-      if (regNotice) regNotice.style.display = 'block';
-      if (regBtn && regBtn.tagName === 'BUTTON') {
-        const a = document.createElement('a');
-        a.href = "https://forms.gle/7DtX3Qm3tre1MLmU6";
-        a.target = "_blank";
-        a.className = "register-btn";
-        a.id = "reg-btn";
-        a.innerHTML = '<span class="unlock-icon">&#128275;</span><span id="reg-text">REGISTER NOW</span>';
-        regBtn.replaceWith(a);
-      }
-      return;
-    }
-
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-    if (countdownTimer) {
-      countdownTimer.innerHTML = 
-        String(days).padStart(2, '0') + ":" + 
-        String(hours).padStart(2, '0') + ":" + 
-        String(minutes).padStart(2, '0') + ":" + 
-        String(seconds).padStart(2, '0');
-    }
-  };
-
-  updateCountdown();
-  setInterval(updateCountdown, 1000);
+  // ─── Countdown & Registration Logic (Closed) ───────
+  // Registration is now closed, countdown disabled.
 
   // ─── Lightbox Modal Logic ──────────────────────────
   const lightboxModal = document.getElementById('lightbox-modal');

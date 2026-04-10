@@ -93,20 +93,14 @@
           coordinates to send their payloads right back at them.
         </p>
 
-        <!-- Registration Button -->
+        <!-- Registration Closed Message -->
         <div class="action-wrapper" id="register">
-          <div id="reg-notice" class="registration-notice" style="display: none; margin-bottom: 20px; color: var(--alert-red); font-size: 0.95rem; font-weight: bold; letter-spacing: 1px; text-shadow: 0 0 8px rgba(255, 32, 32, 0.4); text-align: center; border: 1px dashed var(--alert-red); padding: 10px 20px; background: rgba(255, 32, 32, 0.05);">
-            <span class="alert-icon">⚠️</span> NOTICE: LIMITED TEAMS REGISTRATION, SO REGISTER ASAP!
+          <div class="registration-closed-box" style="border: 1px dashed var(--alert-red); padding: 30px 40px; text-align: center; background: rgba(255, 32, 32, 0.05); box-shadow: 0 0 20px rgba(255, 32, 32, 0.1) inset, 0 0 10px rgba(255, 32, 32, 0.15); max-width: 650px; position: relative;">
+            <h3 style="color: var(--alert-red); margin-bottom: 18px; font-size: 1.6rem; letter-spacing: 3px; text-shadow: 0 0 8px rgba(255, 32, 32, 0.4);">🚫 REGISTRATIONS CLOSED 🚫</h3>
+            <p style="color: var(--text-primary); margin-bottom: 12px; font-size: 1.1rem; line-height: 1.6; font-family: var(--font-body);">ALL SLOTS ARE FULLY BOOKED. THANK YOU FOR THE OVERWHELMING RESPONSE!</p>
+            <p style="color: var(--text-muted); margin-bottom: 25px; font-size: 0.95rem; line-height: 1.5;">TO ALL PARTICIPATING TEAMS: FURTHER DETAILS AND INSTRUCTIONS WILL BE SHARED SOON. STAY TUNED.</p>
+            <p style="color: var(--neon-green); font-family: var(--font-header); font-size: 1.15rem; font-weight: bold; letter-spacing: 2px;">> GET READY FOR THE EVENT <span class="blink-fast" style="color: var(--neon-green);">_</span></p>
           </div>
-          <button class="locked-btn" id="reg-btn" disabled style="display: flex; flex-direction: column; gap: 8px;">
-            <div style="display: flex; align-items: center; gap: 12px;">
-              <span class="lock-icon" id="reg-icon">&#128274;</span>
-              <span id="reg-text">REGISTRATION OPENS IN</span>
-            </div>
-            <div id="countdown-wrapper" class="countdown-wrapper" style="margin-top: 0;">
-              <span id="countdown-timer" class="countdown-timer" style="font-size: 1.4rem;">00:00:00:00</span>
-            </div>
-          </button>
         </div>
 
         <!-- Stats bar -->
